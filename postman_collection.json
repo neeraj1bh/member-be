@@ -1,0 +1,239 @@
+{
+    "info": {
+        "name": "MemberBase API",
+        "description": "Collection of endpoints for MemberBase API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get API Info",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "/"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get All Members",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/members?page=1&limit=10&sortBy=name&order=asc&search=",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "members"
+                    ],
+                    "query": [
+                        {
+                            "key": "page",
+                            "value": "1"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        },
+                        {
+                            "key": "sortBy",
+                            "value": "name"
+                        },
+                        {
+                            "key": "order",
+                            "value": "asc"
+                        },
+                        {
+                            "key": "search",
+                            "value": ""
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Member by ID",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/members/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "members",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Create Member",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/members",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "members"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"John Doe\",\n  \"userName\": \"johndoe\",\n  \"avatar\": \"https://example.com/avatar.jpg\",\n  \"isActive\": true,\n  \"role\": \"Developer\",\n  \"email\": \"john@example.com\",\n  \"teams\": [\"tech\", \"rnd\"]\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "Update Member",
+            "request": {
+                "method": "PATCH",
+                "url": {
+                    "raw": "{{baseUrl}}/members/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "members",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"John Doe Updated\",\n  \"isActive\": false\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "Delete Member",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "{{baseUrl}}/members/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "members",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Restore Member",
+            "request": {
+                "method": "PATCH",
+                "url": {
+                    "raw": "{{baseUrl}}/members/:id/restore",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "members",
+                        ":id",
+                        "restore"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Delete Multiple Members",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/members/delete-all",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "members",
+                        "delete-all"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"ids\": [1, 2, 3]\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "Restore Multiple Members",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{baseUrl}}/members/restore-all",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "members",
+                        "restore-all"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"ids\": [1, 2, 3]\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3001"
+        }
+    ]
+}
